@@ -7,7 +7,7 @@ public class Marvel {
 	private String superpower;
 	private boolean supersoldier;
 	private Long age;
-	
+	 
 	
 	public Long getId() {
 		return id;

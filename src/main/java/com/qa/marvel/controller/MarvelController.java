@@ -3,7 +3,9 @@ package com.qa.marvel.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +17,7 @@ public class MarvelController {
 	
 	private List<Marvel> marvelList = new ArrayList<>();
 	
-	@GetMapping("/getMarvel")
+	@GetMapping("/getAll")
 	public List<Marvel> getMarvel(){
 	return this.marvelList;
 	}
@@ -25,9 +27,16 @@ public class MarvelController {
 		this.marvelList.add(marvel);
 	}
 	
-}
-<<<<<<< HEAD
-=======
+	@GetMapping("/getOne/{id}")
+	public Marvel gerCharacterbyID(@PathVariable int id) {
+	return this.marvelList.get(id);
+	}
 	
->>>>>>> mcontroller
-
+	@DeleteMapping("/remove/{id}")
+	public Marvel removeCharacter(@PathVariable int id) {
+		return this.marvelList.remove(id);
+	}
+	
+	
+	
+}
